@@ -37,8 +37,8 @@ class _PokemonListState extends State<PokemonList> {
     });
 
     try {
-      final pokemonList =
-          await _pokemonService.fetchPokemonList(limit: _limit, offset: _offset);
+      final pokemonList = await _pokemonService.fetchPokemonList(
+          limit: _limit, offset: _offset);
       setState(() {
         _pokemonList.addAll(pokemonList);
         _isLoading = false;
@@ -47,12 +47,13 @@ class _PokemonListState extends State<PokemonList> {
       setState(() {
         _isLoading = false;
       });
-      print(e); // エラーハンドリング
+      // エラーハンドリングを実装する。
+      print(e);
     }
   }
 
   Future<void> _fetchMorePokemon() async {
-    if (_isFetchingMore) return; // データ取得中に再度リクエストが発生しないようにする
+    if (_isFetchingMore) return; // データ取得中に再度リクエストが発生しないように返す。
 
     setState(() {
       _isFetchingMore = true;
@@ -61,8 +62,8 @@ class _PokemonListState extends State<PokemonList> {
     _offset += _limit;
 
     try {
-      final pokemonList =
-          await _pokemonService.fetchPokemonList(limit: _limit, offset: _offset);
+      final pokemonList = await _pokemonService.fetchPokemonList(
+          limit: _limit, offset: _offset);
       setState(() {
         _pokemonList.addAll(pokemonList);
         _isFetchingMore = false;
@@ -71,7 +72,8 @@ class _PokemonListState extends State<PokemonList> {
       setState(() {
         _isFetchingMore = false;
       });
-      print(e); // エラーハンドリング
+      // エラーハンドリングを実装する。
+      print(e);
     }
   }
 
@@ -90,8 +92,8 @@ class _PokemonListState extends State<PokemonList> {
     return Stack(
       children: [
         ListView.builder(
-          controller: _scrollController, // ScrollControllerを設定
-          itemCount: _pokemonList.length + 1, // ローディングインジケーターのために+1
+          controller: _scrollController, 
+          itemCount: _pokemonList.length + 1, // インジケーターを表示するために+1
           itemBuilder: (context, index) {
             if (index < _pokemonList.length) {
               final pokemon = _pokemonList[index];
@@ -100,7 +102,7 @@ class _PokemonListState extends State<PokemonList> {
                 title: Text(pokemon.name),
               );
             } else {
-              // ローディングインジケーターをリストの末尾に表示
+              // インジケーターをリストの末尾に表示
               return Center(
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
@@ -112,8 +114,6 @@ class _PokemonListState extends State<PokemonList> {
             }
           },
         ),
-        if (_isLoading && _pokemonList.isEmpty)
-          Center(child: CircularProgressIndicator()),
       ],
     );
   }
