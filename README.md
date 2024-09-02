@@ -1,16 +1,18 @@
 # pokemon_api
 
-A new Flutter project.
+Flutterを用いたAPI通信の理解を深めるために、サンプルアプリを作成
 
-## Getting Started
+## シミュレーター
 
-This project is a starting point for a Flutter application.
+![Simulator Screen Recording - iPhone 15 - 2024-09-03 at 06 11 16](https://github.com/user-attachments/assets/bf18c8be-f559-4787-bbc4-60359a99214c)
 
-A few resources to get you started if this is your first Flutter project:
+PokemonAPIを用いているアプリです。
+特徴：
+- 起動時に20件ポケモンの情報を取得しています。
+- ポケモンはListViewで表示しています。
+- 最後までスクロールを行うと、追加でポケモンの情報を取得するために、再度fetch処理が走ります。
+- fetch処理中は、ListViewの最後のセルでローディングが表示されます。
+- fetch処理が終了すると、ローディングが消え、新しく取得されたポケモンの情報がListViewに表示されます。
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 技術構成
+- http：HTTP通信を行うために用いたライブラリ。
