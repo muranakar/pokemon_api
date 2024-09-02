@@ -6,8 +6,9 @@ Flutterを用いたAPI通信の理解を深めるために、サンプルアプ�
 
 ![Simulator Screen Recording - iPhone 15 - 2024-09-03 at 06 11 16](https://github.com/user-attachments/assets/bf18c8be-f559-4787-bbc4-60359a99214c)
 
+## アプリの特徴
 PokemonAPIを用いているアプリです。
-特徴：
+### 特徴：
 - 起動時に20件ポケモンの情報を取得しています。
 - ポケモンはListViewで表示しています。
 - 最後までスクロールを行うと、追加でポケモンの情報を取得するために、再度fetch処理が走ります。
